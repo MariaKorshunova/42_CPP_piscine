@@ -6,7 +6,7 @@
 #    By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 13:40:46 by jmabel            #+#    #+#              #
-#    Updated: 2022/11/16 14:22:43 by jmabel           ###   ########.fr        #
+#    Updated: 2022/11/16 17:56:10 by jmabel           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,4 +39,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY		:	all clean fclean re
+.PHONY:		all clean fclean re
