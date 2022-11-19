@@ -6,7 +6,7 @@
 #    By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 13:40:46 by jmabel            #+#    #+#              #
-#    Updated: 2022/11/19 15:32:01 by jmabel           ###   ########.fr        #
+#    Updated: 2022/11/19 17:02:22 by jmabel           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,7 @@ RM			=	rm -f
 
 SRCS		=	main.cpp\
 				Zombie.cpp\
-				newZombie.cpp\
-				randomChump.cpp
-				
+				zombieHorde.cpp
 
 OBJS		=	${SRCS:%.cpp=%.o}
 

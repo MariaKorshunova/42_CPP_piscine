@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 22:07:50 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/18 22:31:59 by jmabel           ###   ########.fr       */
+/*   Updated: 2022/11/19 15:16:25 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ public:
 };
 
 Zombie* newZombie( std::string name );
+void    randomChump( std::string name );
 
 #endif
