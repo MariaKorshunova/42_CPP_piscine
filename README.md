@@ -112,3 +112,41 @@ Now, what is the actual point of the exercise? You have to determine in what cas
 it’s better to allocate the zombies on the stack or heap.
 Zombies must be destroyed when you don’t need them anymore. The destructor must
 print a message with the name of the zombie for debugging purposes.
+
+### Exercise 01: Moar brainz!
+
+Time to create a horde of Zombies!
+
+Implement the following function in the appropriate file:
+
+```
+Zombie* zombieHorde( int N, std::string name );
+```
+
+It must allocate N Zombie objects in a single allocation. Then, it has to initialize the zombies, giving each one of them the name passed as parameter. The function returns a pointer to the first zombie.
+
+Implement your own tests to ensure your `zombieHorde()` function works as expected.
+
+Try to call `announce()` for each one of the zombies.
+
+Don’t forget to delete all the zombies and check for memory leaks.
+
+### Exercise 02: HI THIS IS BRAIN
+
+Write a program that contains:
+
+* A string variable initialized to "HI THIS IS BRAIN".
+* stringPTR: A pointer to the string.
+* stringREF: A reference to the string.
+
+Your program has to print:
+* The memory address of the string variable.
+* The memory address held by stringPTR.
+* The memory address held by stringREF.
+
+And then:
+* The value of the string variable.
+* The value pointed to by stringPTR.
+* The value pointed to by stringREF.
+
+That’s all, no tricks. The goal of this exercise is to demystify references which can seem completely new. Although there are some little differences, this is another syntax for something you already do: address manipulation.
