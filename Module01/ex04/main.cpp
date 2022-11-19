@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 19:24:09 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/19 20:09:59 by jmabel           ###   ########.fr       */
+/*   Updated: 2022/11/19 20:14:42 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,6 @@ int	main(int argc, char **argv)
 	
 	infile.close();
 	outfile.close();
+
+	return 0;
 }
