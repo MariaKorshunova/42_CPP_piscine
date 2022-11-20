@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 20:50:55 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/20 17:52:20 by jmabel           ###   ########.fr       */
+/*   Created: 2022/11/19 21:28:32 by jmabel            #+#    #+#             */
+/*   Updated: 2022/11/20 18:33:28 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#include "Harl.hpp"
 
-#include <iostream>
+#define COLOR_RED "\x1b[31m"
+#define COLOR_CLEAN "\x1b[0m"
 
-class	Harl
+int main(int argc, char **argv)
 {
-private:
+	if (argc != 2)
+	{
+		std::cerr << COLOR_RED "Invalid number of arguments" COLOR_CLEAN << std::endl;
+		return 1;
+	}
 	
-	void	(Harl::*_memberFunctions[4])(void );
-	std::string _levels[4];
-	
-	void debug( void );
-	void info( void );
-	void warning( void );
-	void error( void );
-	
-public:
-	Harl();
-	~Harl();
-
-	void complain( std::string level );
-};
-
-#endif
+	Harl	harl; 
+	harl.complain(argv[1]);
+	return 0;
+}
