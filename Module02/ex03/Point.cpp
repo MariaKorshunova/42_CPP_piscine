@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:46:57 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/21 17:36:22 by jmabel           ###   ########.fr       */
+/*   Updated: 2022/11/21 19:14:18 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ const Point& Point::operator =(const Point &point)
 		return *this;
 	_x = point.getX();
 	_y = point.getY();
+	return *this;
 }
 
 Point::~Point()
