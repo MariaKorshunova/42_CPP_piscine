@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 13:53:14 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/26 20:51:04 by jmabel           ###   ########.fr       */
+/*   Created: 2022/11/25 19:08:22 by jmabel            #+#    #+#             */
+/*   Updated: 2022/11/28 16:47:00 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#ifndef CLASS_ANIMAL_HPP
+#define CLASS_ANIMAL_HPP
 
-int main()
+#include <iostream>
+
+class Animal
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
-	delete j; //should not create a leak
-	delete i;
+protected:
+	std::string	_type;
+	Animal(const std::string& type = "Animal");
 
-	Animal* animals[6];
-	for (int i = 0; i < 3; i++)
-		animals[i] = new Dog();
-	for (int i = 3; i < 6; i++)
-		animals[i] = new Cat();
+public:
+	Animal(const Animal& animal);
+	Animal& operator= (const Animal& animal);
+	virtual ~Animal();
 
-	for (int i = 0; i < 6; i++)
-		delete animals[i];
+	const std::string&	getType() const;
+	void	setType(std::string& type);
 	
-	return 0;
-}
+	virtual void	makeSound() const = 0;
+};
+
+#endif // CLASS_ANIMAL_HPP

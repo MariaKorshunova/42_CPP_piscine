@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 19:08:22 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/26 17:38:13 by jmabel           ###   ########.fr       */
+/*   Created: 2022/11/26 19:12:12 by jmabel            #+#    #+#             */
+/*   Updated: 2022/11/26 19:50:20 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASS_WRONGANIMAL_HPP
-#define CLASS_WRONGANIMAL_HPP
+#ifndef CLASS_BRAIN_HPP
+#define CLASS_BRAIN_HPP
 
 #include <iostream>
 
-class WrongAnimal
+class Brain
 {
-protected:
-	std::string	_type;
+private:
+	std::string	ideas[100];
 
 public:
-	WrongAnimal(const std::string& type = "WrongAnimal");
-	WrongAnimal(const WrongAnimal& animal);
-	WrongAnimal& operator= (const WrongAnimal& animal);
-	virtual ~WrongAnimal();
+	Brain();
+	Brain(const Brain& brain);
+	Brain& operator= (const Brain& brain);
+	~Brain();
 
-	const std::string&	getType() const;
-
-	void	setType(std::string& type);
+	const std::string& getIdea(const unsigned int i) const;
+	void	setIdea(const std::string& str, const unsigned int i);
 	
-	void	makeSound() const;
 };
 
-
-#endif // CLASS_WRONGANIMAL_HPP
+#endif // CLASS_BRAIN_HPP

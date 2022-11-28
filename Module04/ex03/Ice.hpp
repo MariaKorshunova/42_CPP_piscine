@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 13:53:14 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/26 20:51:04 by jmabel           ###   ########.fr       */
+/*   Created: 2022/11/28 16:52:52 by jmabel            #+#    #+#             */
+/*   Updated: 2022/11/28 16:58:32 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#ifndef CLASS_ICE_HPP
+#define CLASS_ICE_HPP
 
-int main()
+#include "AMateria.hpp"
+
+class Ice: public AMateria
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+public:
+	Ice();
+	Ice(const Ice& ice);
+	Ice& operator= (const Ice& ice);
+	~Ice();	
 	
-	delete j; //should not create a leak
-	delete i;
+	virtual AMateria* clone() const;
+	virtual void use(ICharacter& target);
+};
 
-	Animal* animals[6];
-	for (int i = 0; i < 3; i++)
-		animals[i] = new Dog();
-	for (int i = 3; i < 6; i++)
-		animals[i] = new Cat();
-
-	for (int i = 0; i < 6; i++)
-		delete animals[i];
-	
-	return 0;
-}
+#endif // CLASS_ICE_HPP

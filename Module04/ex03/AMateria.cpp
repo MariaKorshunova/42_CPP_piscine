@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 13:53:14 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/26 20:51:04 by jmabel           ###   ########.fr       */
+/*   Created: 2022/11/28 16:46:26 by jmabel            #+#    #+#             */
+/*   Updated: 2022/11/28 16:51:21 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "AMateria.hpp"
 
-int main()
+AMateria::AMateria(std::string const & type):_materiaType(type)
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
-	delete j; //should not create a leak
-	delete i;
-
-	Animal* animals[6];
-	for (int i = 0; i < 3; i++)
-		animals[i] = new Dog();
-	for (int i = 3; i < 6; i++)
-		animals[i] = new Cat();
-
-	for (int i = 0; i < 6; i++)
-		delete animals[i];
-	
-	return 0;
 }
+
+AMateria::AMateria(const AMateria& materia)
+{
+	_materiaType = materia._materiaType;
+}
+
+AMateria& AMateria::operator= (const AMateria& materia)
+{
+	if (this == &materia)
+		return *this;
+	_materiaType  = materia._materiaType;
+	return *this;
+}
+
+std::string const & AMateria::getType() const { return _materiaType; }

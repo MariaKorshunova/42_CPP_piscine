@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 13:53:14 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/26 20:51:04 by jmabel           ###   ########.fr       */
+/*   Created: 2022/11/25 19:08:22 by jmabel            #+#    #+#             */
+/*   Updated: 2022/11/26 20:27:09 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CLASS_CAT_HPP
+#define CLASS_CAT_HPP
+
+#include <iostream>
 #include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "Brain.hpp"
 
-int main()
+class Cat: public Animal
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+private:
+	Brain* _brain;
 	
-	delete j; //should not create a leak
-	delete i;
+public:
+	Cat(const std::string& type = "Cat");
+	Cat(const Cat& cat);
+	Cat& operator= (const Cat& cat);
+	virtual ~Cat();
 
-	Animal* animals[6];
-	for (int i = 0; i < 3; i++)
-		animals[i] = new Dog();
-	for (int i = 3; i < 6; i++)
-		animals[i] = new Cat();
+	virtual void	makeSound() const;
+};
 
-	for (int i = 0; i < 6; i++)
-		delete animals[i];
-	
-	return 0;
-}
+
+#endif // CLASS_CAT_HPP

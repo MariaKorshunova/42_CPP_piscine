@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:53:14 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/26 20:51:04 by jmabel           ###   ########.fr       */
+/*   Updated: 2022/11/28 15:52:04 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,32 @@
 
 int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	{
+		// here is compilation erorr
+		// variable type 'Animal' is an abstract class
 	
-	delete j; //should not create a leak
-	delete i;
+		// Animal	animal;
+		// Animal* pAnimal;
+		// pAnimal = new Animal();
+	}
+	{
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		
+		j->makeSound();
+		i->makeSound();
+		
+		Animal* animals[6];
+		for (int i = 0; i < 3; i++)
+			animals[i] = new Dog();
+		for (int i = 3; i < 6; i++)
+			animals[i] = new Cat();
 
-	Animal* animals[6];
-	for (int i = 0; i < 3; i++)
-		animals[i] = new Dog();
-	for (int i = 3; i < 6; i++)
-		animals[i] = new Cat();
+		for (int i = 0; i < 6; i++)
+			delete animals[i];
 
-	for (int i = 0; i < 6; i++)
-		delete animals[i];
-	
+		delete j;
+		delete i;
+	}
 	return 0;
 }

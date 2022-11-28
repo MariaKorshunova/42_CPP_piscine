@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 13:53:14 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/26 20:51:04 by jmabel           ###   ########.fr       */
+/*   Created: 2022/11/25 19:08:22 by jmabel            #+#    #+#             */
+/*   Updated: 2022/11/26 20:01:55 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CLASS_DOG_HPP
+#define CLASS_DOG_HPP
+
+#include <iostream>
 #include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "Brain.hpp"
 
-int main()
+class Dog: public Animal
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
-	delete j; //should not create a leak
-	delete i;
+private:
+	Brain* _brain;
 
-	Animal* animals[6];
-	for (int i = 0; i < 3; i++)
-		animals[i] = new Dog();
-	for (int i = 3; i < 6; i++)
-		animals[i] = new Cat();
-
-	for (int i = 0; i < 6; i++)
-		delete animals[i];
+public:
+	Dog(const std::string& type = "Dog");
+	Dog(const Dog& dog);
+	Dog& operator= (const Dog& dog);
+	virtual ~Dog();
 	
-	return 0;
-}
+	virtual void	makeSound() const;
+};
+
+
+#endif // CLASS_DOG_HPP
