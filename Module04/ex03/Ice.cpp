@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 16:46:26 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/30 21:26:11 by jmabel           ###   ########.fr       */
+/*   Created: 2022/11/28 18:21:36 by jmabel            #+#    #+#             */
+/*   Updated: 2022/11/30 21:20:17 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
-AMateria::AMateria(std::string const & type):_materiaType(type)
+Ice::Ice(): AMateria("ice")
 {
 }
 
-AMateria::AMateria(const AMateria& materia)
+Ice::Ice(const Ice& ice): AMateria(ice._materiaType)
 {
-	_materiaType = materia._materiaType;
 }
 
-AMateria& AMateria::operator= (const AMateria& materia)
+Ice& Ice::operator= (const Ice& ice)
 {
-	if (this == &materia)
+	if (this == &ice)
 		return *this;
-	_materiaType  = materia._materiaType;
+	AMateria::operator= (ice);
 	return *this;
 }
 
-AMateria::~AMateria()
+Ice::~Ice()
 {
 }
 
-std::string const & AMateria::getType() const { return _materiaType; }
+AMateria* Ice::clone() const { return new Ice(); }
 
-void AMateria::use(ICharacter& target)
+void Ice::use(ICharacter& target)
 {
-	std::cout << target.getName();
+	std:: cout << "* shoots an ice bolt at ";
+	AMateria::use(target);
+	std::cout << " *" << std::endl;
+					
 }

@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:16:10 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/28 13:14:41 by jmabel           ###   ########.fr       */
+/*   Updated: 2022/11/28 18:29:00 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ Dog::Dog(const Dog& dog): Animal(dog._type)
 
 Dog& Dog::operator= (const Dog& dog)
 {
+	if (this == &dog)
+		return *this;
 	Animal::operator= (dog);
 	std::cout << "Dog copy assignment operator called" << std::endl;
 	*_brain = *dog._brain;

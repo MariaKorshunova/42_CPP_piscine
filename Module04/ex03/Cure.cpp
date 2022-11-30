@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 16:46:26 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/30 21:26:11 by jmabel           ###   ########.fr       */
+/*   Created: 2022/11/28 18:21:36 by jmabel            #+#    #+#             */
+/*   Updated: 2022/11/30 21:20:13 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
-AMateria::AMateria(std::string const & type):_materiaType(type)
+Cure::Cure(): AMateria("cure")
 {
 }
 
-AMateria::AMateria(const AMateria& materia)
+Cure::Cure(const Cure& cure): AMateria(cure._materiaType)
 {
-	_materiaType = materia._materiaType;
 }
 
-AMateria& AMateria::operator= (const AMateria& materia)
+Cure& Cure::operator= (const Cure& cure)
 {
-	if (this == &materia)
+	if (this == &cure)
 		return *this;
-	_materiaType  = materia._materiaType;
+	AMateria::operator= (cure);
 	return *this;
 }
 
-AMateria::~AMateria()
+Cure::~Cure()
 {
 }
 
-std::string const & AMateria::getType() const { return _materiaType; }
+AMateria* Cure::clone() const { return new Cure(); }
 
-void AMateria::use(ICharacter& target)
+void Cure::use(ICharacter& target)
 {
-	std::cout << target.getName();
+	std:: cout << "* heals ";
+	AMateria::use(target);
+	std::cout << "’s wounds *" << std::endl;
+					
 }
