@@ -6,7 +6,7 @@
 #    By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 13:40:46 by jmabel            #+#    #+#              #
-#    Updated: 2022/12/06 19:01:34 by jmabel           ###   ########.fr        #
+#    Updated: 2022/12/06 20:03:45 by jmabel           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ HEADER		=	Bureaucrat.hpp\
 				AForm.hpp\
 				ShrubberyCreationForm.hpp\
 				RobotomyRequestForm.hpp\
-				PresidentialPardonForm.hpp
+				PresidentialPardonForm.hpp\
+				Intern.hpp 
 
 CC			=	c++
 CPPFLAGS	=	-Wall -Wextra -Werror
@@ -29,7 +30,8 @@ SRCS		=	main.cpp\
 				AForm.cpp\
 				ShrubberyCreationForm.cpp\
 				RobotomyRequestForm.cpp\
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp\
+				Intern.cpp
 
 OBJS		=	${SRCS:%.cpp=%.o}
 

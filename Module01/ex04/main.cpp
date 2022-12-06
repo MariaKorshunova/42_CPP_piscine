@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 19:24:09 by jmabel            #+#    #+#             */
-/*   Updated: 2022/11/19 20:14:42 by jmabel           ###   ########.fr       */
+/*   Updated: 2022/12/06 16:43:53 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	}
 	
 	std::ofstream	outfile(filename + ".replace");
-	if (!infile.is_open())
+	if (!outfile.is_open())
 	{
 		infile.close();
 		std::cerr << filename + ".replace" << COLOR_RED " can't be open" COLOR_CLEAN << std::endl;
