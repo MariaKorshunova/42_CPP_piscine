@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 19:29:48 by jmabel            #+#    #+#             */
-/*   Updated: 2022/12/06 20:43:42 by jmabel           ###   ########.fr       */
+/*   Updated: 2022/12/07 11:47:24 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ AForm*	Intern::makeForm(std::string form, std::string target)
 
 const char* Intern::NotExistedForm::what() const throw()
 {
-	return ("form doesn't exist,");
+	return ("form doesn't exist");
 }

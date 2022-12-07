@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:38:23 by jmabel            #+#    #+#             */
-/*   Updated: 2022/12/06 20:47:43 by jmabel           ###   ########.fr       */
+/*   Updated: 2022/12/07 11:46:57 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int	main(void)
 	AForm* shrubbery = someRandomIntern.makeForm("shrubbery creation", "Ford");
 	AForm* robotomy = someRandomIntern.makeForm("robotomy request", "Bender");
 	AForm* pardon = someRandomIntern.makeForm("presidential pardon", "Arthur");
+	AForm* errorForm;
+	try { errorForm = someRandomIntern.makeForm("error form", "Douglas"); }
+	catch (std::exception &e) { std::cerr << e.what() << std::endl; }
 	std::cout << *shrubbery;
 	std::cout << *robotomy;
 	std::cout << *pardon;
