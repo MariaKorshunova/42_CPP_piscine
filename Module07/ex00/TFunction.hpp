@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   TFunction.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 15:26:39 by jmabel            #+#    #+#             */
-/*   Updated: 2022/12/08 12:45:26 by jmabel           ###   ########.fr       */
+/*   Created: 2022/12/08 19:45:09 by jmabel            #+#    #+#             */
+/*   Updated: 2022/12/08 20:19:53 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
-#include "Converter.hpp"
-
-int	main (int argc, char **argv)
+template <typename T>
+void	swap(T& a, T& b)
 {
-    if (argc != 2)
-    {
-        std::cout << "Invalid number of argument" << std::endl;
-        return (EXIT_FAILURE);
-    }
-    Converter converter;
-    std::string value = argv[1];
-    converter.convert(value);
-    return (EXIT_SUCCESS);
+	T	tmp;
+	tmp = a;
+	a = b;
+	b = tmp;
 }
+
+template <typename T>
+T&	min(T& a, T& b) { return (a < b)? a: b; }
+
+template <typename T>
+T&	max(T& a, T& b) { return (a > b)? a: b; }

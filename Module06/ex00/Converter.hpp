@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 16:09:36 by jmabel            #+#    #+#             */
-/*   Updated: 2022/12/07 20:29:24 by jmabel           ###   ########.fr       */
+/*   Updated: 2022/12/08 12:25:52 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,16 @@ private:
 	};
 	
 	Type	_type;
+	int		_precision;
 	Type	defineType(std::string& value);
 
-	// void	convertToString();
-	void	convertToChar(std::string& value);
-	// void	convertToInt(std::string& value);
+	void	convertFromString();
+	void	convertFromPseudoLiteral(std::string& value);
+	void	convertFromChar(std::string& value);
+	void	convertNumberToChar(std::string& value);
+	void	convertNumberToInt(std::string& value);
+	void	convertNumberToFloat(std::string& value);
+	void	convertNumberToDouble(std::string& value);
 
 public:
 
