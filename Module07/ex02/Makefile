@@ -6,7 +6,7 @@
 #    By: jmabel <jmabel@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 13:40:46 by jmabel            #+#    #+#              #
-#    Updated: 2022/12/09 19:18:23 by jmabel           ###   ########.fr        #
+#    Updated: 2022/12/09 22:03:25 by jmabel           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,7 @@ CPPFLAGS	+=	-std=c++98
 
 RM			=	rm -f 
 
-SRCS		=	main.cpp\
-				Array.cpp
+SRCS		=	main.cpp
 
 OBJS		=	${SRCS:%.cpp=%.o}
 
