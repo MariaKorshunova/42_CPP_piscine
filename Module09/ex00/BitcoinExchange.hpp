@@ -41,7 +41,8 @@ private:
 	void	_trimString(std::string& str);
 
 	bool	_checkValue(double value);
-	
+
+	double	_findCLosestDay(Date& date);
 
 public:
 	BitcoinExchange(const std::string& inputFile);

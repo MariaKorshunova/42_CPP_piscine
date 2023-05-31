@@ -93,9 +93,13 @@ bool	BitcoinExchange::_replaceDashCheckDigits(std::string& str)
 {
 	int numberDash = 0;
 	
+	if (str[0] == '-' || str[str.length() - 1] == '-')
+		return false;
 	for (size_t i = 0; i < str.length(); i++){
 		if (str[i] == '-')
 		{
+			if (str[i + 1] == '-')
+				return false;
 			numberDash++;
 			str[i] = ' ';
 		}
@@ -146,10 +150,17 @@ bool	BitcoinExchange::_checkValue(double value)
 	return true;
 }
 
+
+double	BitcoinExchange::_findCLosestDay(Date& date)
+{
+
+}
+
 void BitcoinExchange::exchange()
 {
 	std::ifstream	input(_inputFile);
-	size_t pos;
+	size_t			pos;
+	double			exchange;
 	
 	if(!input.is_open()) {
 		throw(BitcoinExchangeException("btc: Error: input file can't be open"));
@@ -175,6 +186,7 @@ void BitcoinExchange::exchange()
 			std::cerr << "Error: bad input => " << line << std::endl;
 			continue ;
 		}
+
 		Date date = _parseDate(dateString);
 		if (checkDate(date.getYear(), date.getMonth(), date.getDay()) == false) {
 			std::cerr << "Error: bad input => " << line << std::endl;
@@ -196,19 +208,11 @@ void BitcoinExchange::exchange()
 		}
 		if (_checkValue(value) == false)
 			continue;
-		
-		
+		if (_data.find(date) == _data.end())
+			exchange = 0;
+		else
+			exchange = _data[date] * value;
+		std::cout << date << " => " << value  << " = " << exchange << std::endl; 		
 	}
 	input.close();
 }
-
-
-/*  printing data
-
-	std::map<Date, double>::iterator it;
-    for (it = _data.begin(); it != _data.end(); ++it) {
-        const Date& key = it->first;
-        double value = it->second;
-        std::cout << "Key: " << key << std::fixed <<  ", Value: " << value << std::endl;
-    }
-*/
