@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 18:29:32 by jmabel            #+#    #+#             */
-/*   Updated: 2023/05/15 19:00:46 by jmabel           ###   ########.fr       */
+/*   Updated: 2023/06/12 17:50:29 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CLASS_DATE_HPP
 
 #include <iostream>
+#include <iomanip> //setw
 
 class	Date {
 
@@ -33,6 +34,8 @@ class	Date {
 		int getYear() const;
 		int getMonth() const;
 		int getDay() const;
+
+		int differenceInDays(const Date& other); 
 
 		bool operator< (const Date& other) const;
 		bool operator> (const Date& other) const;

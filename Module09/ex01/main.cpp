@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmabel <jmabel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 19:05:00 by jmabel            #+#    #+#             */
-/*   Updated: 2023/06/12 17:57:45 by jmabel           ###   ########.fr       */
+/*   Created: 2023/06/12 18:33:26 by jmabel            #+#    #+#             */
+/*   Updated: 2023/06/12 19:18:29 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
 #define COLOR_RED "\x1b[31m"
 #define RESET "\x1b[0m"
@@ -20,17 +20,19 @@
 int main(int argc, char **argv)
 {
     if (argc != 2) {
-		std::cerr 	<< COLOR_RED "btc: Error: invalid number of arguments. Program must take a file as argument." RESET
+		std::cerr 	<< COLOR_RED "RPN: Error: invalid number of arguments. " 
+					<< "Program must take a string with inverted Polish mathematical expression" RESET
 					<< std::endl;
 		return (1);
 	}
-
-	try {
-		BitcoinExchange btc(static_cast<std::string>(argv[1]));
-		btc.exchange();
-	} catch(const std::exception& e)
+	try 
 	{
-		std::cerr << COLOR_RED << e.what() << RESET << std::endl;
+		RPN rpn(static_cast<std::string>(argv[1])); 
 	}
-    return (0);
+	catch(const std::exception& e)
+	{
+		std::cerr << COLOR_RED << e.what() << RESET << '\n';
+	}
+
+	return (0);
 }

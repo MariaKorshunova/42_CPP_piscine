@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:54:52 by jmabel            #+#    #+#             */
-/*   Updated: 2023/05/17 16:40:23 by jmabel           ###   ########.fr       */
+/*   Updated: 2023/06/12 17:44:05 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 BitcoinExchange::BitcoinExchange(const std::string& inputFile){
 	_inputFile = inputFile;
 	_fillDatabase();
+	if (_data.empty())
+			throw(BitcoinExchangeException("btc: Error: " DATABASE " empty"));
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& copy) {
@@ -152,8 +154,21 @@ bool	BitcoinExchange::_checkValue(double value)
 
 
 double	BitcoinExchange::_findCLosestDay(Date& date)
-{
-
+{	
+	int minDiffDays = INT_MAX;
+	int diffDays = 0;
+	double value = -1;
+	std::map<Date, double>::iterator it;
+	for  (it = _data.begin(); it != _data.end(); it++)
+	{
+		diffDays = date.differenceInDays(it->first);
+		if (diffDays >= 0 && diffDays < minDiffDays)
+		{
+			value = it->second;
+			minDiffDays = diffDays;
+		}
+	}
+	return value;
 }
 
 void BitcoinExchange::exchange()
@@ -209,10 +224,14 @@ void BitcoinExchange::exchange()
 		if (_checkValue(value) == false)
 			continue;
 		if (_data.find(date) == _data.end())
-			exchange = 0;
+			exchange = _findCLosestDay(date);
 		else
-			exchange = _data[date] * value;
-		std::cout << date << " => " << value  << " = " << exchange << std::endl; 		
+			exchange = _data[date];
+		if (exchange == -1){
+			std::cerr << "Error: date is earlier than the earliest date in database  => " << date << std::endl;
+			continue ;
+		}
+		std::cout << date << " => " << value  << " = " << exchange * value << std::endl; 		
 	}
 	input.close();
 }

@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 18:32:30 by jmabel            #+#    #+#             */
-/*   Updated: 2023/05/15 19:02:07 by jmabel           ###   ########.fr       */
+/*   Updated: 2023/06/12 17:52:12 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@ Date::~Date() { }
 int Date::getYear() const { return _year; }
 int Date::getMonth() const { return _month; }
 int Date::getDay() const { return _day; }
+
+int Date::differenceInDays(const Date& other)
+{
+	int thisDays = _year * 365 + _month * 30 + _day;
+	int	otherDays = other.getYear() * 365 + other.getMonth() * 30 + other.getDay();
+
+	return (thisDays - otherDays);
+
+}
 
 bool Date::operator< (const Date& other) const
 {
@@ -79,7 +88,10 @@ bool Date::operator= (const Date& other) const
 
 std::ostream& operator<< (std::ostream& out, const Date& date)
 {
-	out << date.getYear() << '-' << date.getMonth() << '-' << date.getDay();
+	
+	out << date.getYear() << '-' 
+		<< std::setw(2) << std::setfill('0') << date.getMonth() << '-'
+		<< std::setw(2) << std::setfill('0') << date.getDay();
 	return out;
 }
 

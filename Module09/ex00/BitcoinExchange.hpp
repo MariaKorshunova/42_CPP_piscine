@@ -6,7 +6,7 @@
 /*   By: jmabel <jmabel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:42:20 by jmabel            #+#    #+#             */
-/*   Updated: 2023/05/17 16:37:32 by jmabel           ###   ########.fr       */
+/*   Updated: 2023/06/12 17:26:28 by jmabel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <fstream> // for open file
 #include <sstream> // for stringstream
 #include <map>
+#include <limits.h>
 #include "Date.hpp"
 
 #define DATABASE "data.csv"
